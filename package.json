@@ -1,7 +1,7 @@
 {
   "name": "@zserge/q",
-  "version": "0.0.1",
-  "description": "The worse possible VueJS clone",
+  "version": "0.0.2",
+  "description": "The worst possible VueJS clone",
   "scripts": {
     "test": "eslint q.js && cat q.js test.js | node",
     "minify": "terser --compress=drop_console,ecma=6,passes=2 --mangle -- q.js > q.min.js && sed -i 's/const/let/g' q.min.js && ls -l q.min.js && gzip -cf9 q.min.js > q.min.js.gz && ls -l q.min.js.gz && rm -f q.min.js.gz"
