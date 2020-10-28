@@ -1,0 +1,20 @@
+{
+  "name": "@zserge/q",
+  "version": "0.0.1",
+  "description": "The worse possible VueJS clone",
+  "scripts": {
+    "test": "eslint q.js && cat q.js test.js | node",
+    "minify": "terser --compress=drop_console,ecma=6,passes=2 --mangle -- q.js > q.min.js && sed -i 's/const/let/g' q.min.js && ls -l q.min.js && gzip -cf9 q.min.js > q.min.js.gz && ls -l q.min.js.gz && rm -f q.min.js.gz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zserge/q.git"
+  },
+  "author": "Serge Zaitsev <zaitsev.serge@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "jsdom": "^16.4.0",
+    "terser": "^5.3.8"
+  }
+}

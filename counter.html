@@ -1,0 +1,22 @@
+<html>
+  <style>
+    ul, li { list-style: none; display: inline; }
+    .active { text-decoration: underline; }
+  </style>
+  <body>
+    <div id="counter">
+      <button q-on:click="clicks++" q-bind:disabled="clicks >= 5">Click me</button>
+      <button q-on:click="clicks=0">Reset</button>
+      <p q-text="`Clicked ${clicks} times`"></p>
+      <ul q-each="[0,1,2,3,4,5]">
+        <li q-text="$it" q-bind:class="$it == $parent.clicks ? 'active' : ''"></li>
+      </ul>
+    </div>
+
+  </body>
+  <script src="q.js"></script>
+  <script>
+    Q(counter, {clicks: 0});
+  </script>
+</html>
+

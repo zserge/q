@@ -1,0 +1,36 @@
+<html>
+  <style>
+    ul, li { list-style: none; }
+    .done { text-decoration: line-through; }
+  </style>
+  <body>
+    <div id="app">
+      <input q-model="draft" />
+      <button q-on:click="addTask(draft)" q-bind:disabled="!draft.length">Add task</button>
+      <button q-on:click="deleteCompleted()" q-bind:disabled="tasks.length == 0">Delete completed</button>
+
+      <ul q-each="tasks">
+        <li
+          q-text="$it.name"
+          q-bind:class="$it.done ? 'done': null"
+          q-on:click="$it.done = !$it.done"
+        ></li>
+      </ul>
+    </div>
+  </body>
+  <script src="q.js"></script>
+  <script>
+    const todo = {
+      draft: '',
+      addTask: name => {
+        todo.tasks = [...todo.tasks, proxy({name, done: false})];
+        todo.draft = '';
+      },
+      deleteCompleted: () => {
+        todo.tasks = todo.tasks.filter(t => !t.done);
+      },
+      tasks: [{name:'foo', done: true},{name:'bar',done:false}].map(proxy),
+    };
+    Q(app, todo);
+  </script>
+</html>
