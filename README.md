@@ -22,7 +22,7 @@ If you liked it - there is a similar [toy ReactJS library](https://github.com/zs
 	<p q-text="`Clicked ${clicks} times`"></p>
 </div>
 <script>
-	Q(counter, {click: 0});
+	Q(counter, {clicks: 0});
 </script>
 ```
 
